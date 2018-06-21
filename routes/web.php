@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     // inChargeOf: guys
     Route::post('favorite', 'ShopUserController@favorite')->name('favorite');
     // inChargeOf: guys
-    Route::delete('favorite', 'ShopUserController@unfavorite')->name('favorite');
+    Route::delete('favorite', 'ShopUserController@unfavorite')->name('unfavorite');
     // inChargeOf: girls
     Route::resource('user', 'UsersController', ['only' => ['show']]);
 });
