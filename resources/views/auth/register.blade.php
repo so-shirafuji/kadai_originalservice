@@ -1,24 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">ログイン</div>
-            <div class="panel-body">
-                {!! form::open(['route' => 'login.post']) !!}
-                   
-                    <div class="form-group">
-                        {!! form::label('password', 'パスワード') !!}
-                        {!! form::password('password', ['class' => 'form-control']) !!}
-                    </div>
+    <div class="text-center">
+        <h1>Sign up</h1>
+    </div>
 
-                    <div class="text-right">
-                        {!! form::submit('ログイン', ['class' => 'btn btn-success']) !!}
-                    </div>
-                {!! form::close() !!}
-            </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            {!! Form::open(['route' => 'signup.post']) !!}
+                <div class="form-group">
+                    {!! Form::label('name', 'Name') !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('email', 'Email') !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('password', 'Password') !!}
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('password_confirmation', 'Confirmation') !!}
+                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                </div>
+
+                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
-</div>
 @endsection
