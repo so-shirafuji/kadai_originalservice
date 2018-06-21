@@ -20,8 +20,11 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // Main
+Route::get('/', 'WelcomeController@index')->name('welcome.index');
+
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('shops', 'ShopsController', ['only' => ['create','show']]);
     Route::post('favorite', 'ShopUserController@favorite')->name('favorite');
     Route::delete('favorite', 'ShopUserController@unfavorite')->name('favorite');
+    Route::resource('user', 'UsersController', ['only' => ['show']]);
 });
