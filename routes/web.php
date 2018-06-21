@@ -28,7 +28,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // inChargeOf: girls
 Route::get('/', 'WelcomeController@index')->name('welcome.index');
 
-Route::group(['middleware' => ['auth']], function () {
+// Route::group(['middleware' => ['auth']], function () {
     // inChargeOf: guys
     Route::resource('shops', 'ShopsController', ['only' => ['create','show']]);
     // inChargeOf: guys
@@ -37,4 +37,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('favorite', 'ShopUserController@unfavorite')->name('unfavorite');
     // inChargeOf: girls
     Route::resource('user', 'UsersController', ['only' => ['show']]);
-});
+// });
