@@ -11,6 +11,7 @@ class ShopsController extends Controller
 
     public function create()
     {
+        $area = null;
         $keyword = request()->keyword;
         $shops = [];
         if ($keyword) {
@@ -38,13 +39,14 @@ class ShopsController extends Controller
         return view('shops.create', [
             'keyword' => $keyword,
             'shops' => $shops,
+            'area' => $area,
         ]);
     }
     
      public function show($id)
     {
       $shop = shop::find($id);
-      $favoiter_users = $shop->favteior_users;
+      $favoiter_users = $shop->favorite_users;
 
       return view('shops.show', [
           'shop' => $shop,

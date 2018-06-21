@@ -13,6 +13,7 @@
                         <div class="buttons text-center">
                             @if (Auth::check())
                                 @include('shops.favorite_button', ['shop' => $shop])
+                                @include("shops.detail_button",['shop' => $shop])
                             @endif
                         </div>
                     </div>
