@@ -34,22 +34,34 @@ class ShopsController extends Controller
         ]);
     }
     
-     public function show($id)
-    {
+    //  public function show($id)
+    // {
         
-      $shop = shop::find($id);
-      $favoiter_users = $shop->favorite_users;
+    //   $shop = shop::find($id);
+    //   $favoiter_users = $shop->favorite_users;
 
-      return view('shops.show', [
-          'shop' => $shop,
-          'favorite_users' => $favorite_users,
-      ]);
-    }
+    //   return view('shops.show', [
+    //       'shop' => $shop,
+    //       'favorite_users' => $favorite_users,
+    //   ]);
+    // }
     
     public function store(Request $request){
         return view('shops.show', [
-            'shop' => $request->name,
+            'name' => $request->name,
+            'image' => $request->image,
+            'address' => $request->address,
+            'name_kana' => $request ->name_kana,
+            'latitude' => $request ->latitude,
+            'longitude' => $request ->longitude,
+            'category' => $request ->category,
+            'url' => $request ->url,
+            'tel' => $request ->tel,
+            'line' => $request ->line,
+            'station' => $request ->station,
+            'opentime' => $request ->opentime,
             // 'favorite_users' => $favorite_users,
+            
         ]);
     }
   }

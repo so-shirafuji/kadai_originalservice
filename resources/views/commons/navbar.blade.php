@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-left" href="/"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
+                <a class="navbar-left" href="/user"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
                 <p>MediumRare</p>
             </div>
         
@@ -32,10 +32,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{ route('user.show', Auth::user()->id) }}">My Page</a>
-                                </li>
-                                <li role="separator" class="divider"></li>
+                            
                                 <li>
                                     <a href="{{ route('logout.get') }}">Log Out</a>
                                 </li>
