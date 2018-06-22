@@ -8,7 +8,6 @@
     <p>営業時間　{{ $opentime }}</p>
     <p>{{ $tel }}</p>
     <p>{{ $line }} {{ $station }}</p>
-    <p></p>
     <p>{{ $address }}</p>
     <p>{{ $latitude }}</p>
     <p>{{ $longitude }}</p>

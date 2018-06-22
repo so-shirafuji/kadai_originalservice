@@ -29,12 +29,12 @@ class User extends Authenticatable
     
       public function shops()
     {
-        return $this->belongsToMany(shop::class)->withPivot('type')->withTimestamps();
+        return $this->belongsToMany(shop::class,'user_favorite', 'user_id', 'shop_id')->withTimestamps();
     }
 
     public function favorite_shops()
     {
-        return $this->shops()->where('type', 'favorite');
+        return $this->shops();
     }
 
     public function favorite($shopId)
