@@ -51,7 +51,17 @@ class ShopsController extends Controller
             'name' => $request->name,
             'image' => $request->image,
             'address' => $request->address,
+            'name_kana' => $request ->name_kana,
+            'latitude' => $request ->latitude,
+            'longitude' => $request ->longitude,
+            'category' => $request ->category,
+            'url' => $request ->url,
+            'tel' => $request ->tel,
+            'line' => $request ->line,
+            'station' => $request ->station,
+            'opentime' => $request ->opentime,
             // 'favorite_users' => $favorite_users,
+            
         ]);
     }
   }
