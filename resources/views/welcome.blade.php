@@ -18,7 +18,7 @@
                 
                 <br>
                 <a href="{{ route('signup.get') }}" class="btn btn-success btn-lg">Sign Up</a>
-                <a href="{{ route('login') }}" class="btn btn-success btn-lg">Log In</a>
+                <a href="{{ route('user.show') }}" class="btn btn-success btn-lg">Log In</a>
             </div>
         </div>
     </div>
