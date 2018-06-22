@@ -1,4 +1,5 @@
 <header>
+  
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -11,17 +12,18 @@
                 
                            @if (Auth::check())
                         
-                             <a class="navbar-left" href="/user"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
+                             <a class="navbar-left" href="/user" id="toop">Medium Rare </a>
                 
                     @else
-                         <a class="navbar-left" href="/"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
+                         <a class="navbar-left" href="/" id="toop">Medium Rare </a>
              
                     @endif
                
-                <p>MediumRare</p>
-                
+              
                 
             </div>
+            
+           
         
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -57,4 +59,5 @@
             </div>
         </div>
     </nav>
+ 
 </header>

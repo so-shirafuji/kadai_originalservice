@@ -4,24 +4,28 @@
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
         <div class="panel panel-default">
-            <div class="panel-heading">ログイン</div>
+            <div class="panel-heading">Log In</div>
             <div class="panel-body">
                 {!! Form::open(['route' => 'login.post']) !!}
                     <div class="form-group">
-                        {!! form::label('email', 'メールアドレス') !!}
+                        {!! form::label('email', 'E-mail') !!}
                         {!! form::email('email', old('email'), ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                        {!! form::label('password', 'パスワード') !!}
-                        {!! form::password('password', ['class' => 'form-control']) !!}
+                        {!! form::label('Password', 'Password') !!}
+                        {!! form::password('Password', ['class' => 'form-control']) !!}
                     </div>
 
-                    <div class="text-right">
-                        {!! form::submit('ログイン', ['class' => 'btn btn-success']) !!}
-                    </div>
-                {!! form::close() !!}
             </div>
+        
+        </div>
+        
+        
+                    <div class="text-right">
+                        {!! form::submit('Log In', ['class' => 'button']) !!}
+                  
+                {!! form::close() !!}
         </div>
     </div>
 </div>

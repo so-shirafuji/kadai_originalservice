@@ -7,18 +7,22 @@
     <div class="cover">
         <div class="cover-inner">
             <div class="cover-contents">
-                <h1>Medium Rare</h1>
+                
                 
                 <div class="img">
-                <img src=images/veg.jpg alt="top" height="500px", width="1000px">
+                <img src=images/3.jpg alt="top" height="500px", width="900px">
                 
                 <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+               
                 </div>
                 
                 
                 <br>
-                <a href="{{ route('signup.get') }}" class="btn btn-success btn-lg">Sign Up</a>
-                <a href="{{ route('login') }}" class="btn btn-success btn-lg">Log In</a>
+                
+                <a href="{{ route('signup.get') }}" class="btn"><div id="a">Sign Up</div></a>
+                
+                <a href="{{ route('login') }}" class="btn"><div id="a">Log In</div></a>
+                
             </div>
         </div>
     </div>
