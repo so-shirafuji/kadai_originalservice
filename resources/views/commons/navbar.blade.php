@@ -8,8 +8,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-left" href="/"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> MediumRare</a>
+                <a class="navbar-left" href="/"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
+                <p>MediumRare</p>
             </div>
+        
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
@@ -31,7 +33,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ route('login', Auth::user()->id) }}">My Page</a>
+                                    <a href="{{ route('user.show', Auth::user()->id) }}">My Page</a>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li>

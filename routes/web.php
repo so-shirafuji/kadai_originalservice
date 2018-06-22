@@ -36,7 +36,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome.index');
 Route::group(['middleware' => ['auth']], function () {
 
     // inChargeOf: guys
-    Route::resource('shops', 'ShopsController', ['only' => ['create','show']]);
+    Route::resource('shops', 'ShopsController', ['only' => ['create', 'show', 'store']]);
     // inChargeOf: guys
     Route::post('favorite', 'ShopUserController@favorite')->name('favorite');
     // inChargeOf: guys
