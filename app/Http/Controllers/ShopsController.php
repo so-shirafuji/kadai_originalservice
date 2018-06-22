@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Shop;
+use App\shop;
+
+use App\Libraries\GurunaviAPI;
+use App\Libraries\GurunaviAPIConfig;
 
 class ShopsController extends Controller
  {
@@ -13,38 +16,27 @@ class ShopsController extends Controller
     {
         $area = null;
         $keyword = request()->keyword;
-        $shops = [];
-        if ($keyword) {
-            //$client = new \RakutenRws_Client();
-            //$client->setApplicationId(env('RAKUTEN_APPLICATION_ID'));
-
-            // $rws_response = $client->execute('IchibashopSearch', [
-            //     'keyword' => $keyword,
-            //     'imageFlag' => 1,
-            //     'hits' => 20,
-            // ]);
-
-            // Creating "shop" instance to make it easy to handle.（not saving）
-            foreach ($rws_response->getData()['shops'] as $rws_shop) {
-                $shop = new shop();
-                $shop->code = $rws_shop['shop']['shopCode'];
-                $shop->name = $rws_shop['shop']['shopName'];
-                $shop->location = $rws_shop['shop']['shopLocation'];
-                $shop->url = $rws_shop['shop']['shopUrl'];
-                $shop->image_url = str_replace('?_ex=128x128', '', $rws_shop['shop']['mediumImageUrls'][0]['imageUrl']);
-                $shops[] = $shop;
-            }
-        }
+        
+        //api seq
+        $ins = new GurunaviAPI(GurunaviAPIConfig::API_KEY);
+        $ins->SetRequestQuery('uris', $ins->GetUri('search'));
+        $ins->SetRequestQuery('freeword', '和食');
+        $ins->SetRequestQuery('areacode', 'AREAM3001');
+        
+        $res = $ins->GetHttpRequest();
+        // var_dump($res->rest);
 
         return view('shops.create', [
             'keyword' => $keyword,
-            'shops' => $shops,
+            'shops' => $res->rest,
+            // 'shops_meta' => $res->@attributes,
             'area' => $area,
         ]);
     }
     
      public function show($id)
     {
+        
       $shop = shop::find($id);
       $favoiter_users = $shop->favorite_users;
 
@@ -52,5 +44,12 @@ class ShopsController extends Controller
           'shop' => $shop,
           'favorite_users' => $favorite_users,
       ]);
+    }
+    
+    public function store(Request $request){
+        return view('shops.show', [
+            'shop' => $request->name,
+            // 'favorite_users' => $favorite_users,
+        ]);
     }
   }
