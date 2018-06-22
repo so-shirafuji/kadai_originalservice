@@ -11,6 +11,8 @@
                             @if ($shop->id)
                                 {{ Form::open(['route' => 'shops.store', 'method' => 'post']) }}
                                     <input type="hidden" name="name" value="{{ $shop->name }}">
+                                    <input type="hidden" name="image" value="{{ $shop->image_url->shop_image1 }}">
+                                    <input type="hidden" name="address" value="{{ $shop->address }}">
                                     {{ Form::submit('detail') }}
                                 {{ Form::close() }}
                                 <p class="shop-title">{{ $shop->name }}</p>
