@@ -8,17 +8,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-<<<<<<< HEAD
-                <a class="navbar-left" href="/"><img src="{{ secure_asset("images/pig1.png")}}" alt="Mediumrare"> </a>
-                 <p>Medium Rare</p>
-            </div>
-            
-=======
-                <a class="navbar-left" href="/"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
+
+
+                 <a class="navbar-left" href="/user"><img src="{{ secure_asset("images/pig1.png")}}" alt="Monolist"> </a>
+
                 <p>MediumRare</p>
             </div>
         
->>>>>>> 8dcee8e1db209c67872f2103ffca08c382aed923
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
@@ -39,15 +36,9 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-<<<<<<< HEAD
-                                <!--<li>-->
-                                    <!--<a href="{{ route('login', Auth::user()->id) }}">My Page</a>-->
-                                <!--</li>-->
-=======
                                 <li>
                                     <a href="{{ route('user.show', Auth::user()->id) }}">My Page</a>
                                 </li>
->>>>>>> 8dcee8e1db209c67872f2103ffca08c382aed923
                                 <li role="separator" class="divider"></li>
                                 <li>
                                     <a href="{{ route('logout.get') }}">Log Out</a>

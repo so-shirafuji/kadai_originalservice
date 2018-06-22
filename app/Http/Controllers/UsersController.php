@@ -12,10 +12,11 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
+        // \Auth::user()->id
+        //$favorites = User::paginate(10);
         
          return view('users.index', [
-            'users' => $users,
+            'user' => \Auth::user(),
          ]);
      }
     

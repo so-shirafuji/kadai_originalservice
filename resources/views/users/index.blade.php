@@ -11,7 +11,9 @@
         <div class="status text-center">
             
         </div>
+        
+        
     </div>
-    <!--@include('items.items', ['items' => $items])-->
-    <!--{!! $items->render() !!}-->
+    {{-- @include('items.items', ['items' => $items]) --}}
+    {{-- {!! $items->render() !!} --}}
 @endsection
