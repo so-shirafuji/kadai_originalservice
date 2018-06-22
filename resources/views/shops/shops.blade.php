@@ -13,6 +13,15 @@
                                     <input type="hidden" name="name" value="{{ $shop->name }}">
                                     <input type="hidden" name="image" value="{{ $shop->image_url->shop_image1 }}">
                                     <input type="hidden" name="address" value="{{ $shop->address }}">
+                                    <input type="hidden" name="name_kana" value="{{ $shop->name_kana }}">
+                                    <input type="hidden" name="latitude" value="{{ $shop->latitude }}">
+                                    <input type="hidden" name="longitude" value="{{ $shop->longitude }}">
+                                    <input type="hidden" name="category" value="{{ $shop->category }}">
+                                    <input type="hidden" name="tel" value="{{ $shop->tel }}">
+                                    <input type="hidden" name="url" value="{{ $shop->url }}">
+                                    <input type="hidden" name="line" value="{{ $shop->access->line }}">
+                                    <input type="hidden" name="station" value="{{ $shop->access->station }}">
+                                    <input type="hidden" name="opentime" value="{{ $shop->opentime }}">
                                     {{ Form::submit('detail') }}
                                 {{ Form::close() }}
                                 <p class="shop-title">{{ $shop->name }}</p>
