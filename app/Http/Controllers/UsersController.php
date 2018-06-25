@@ -17,6 +17,7 @@ class UsersController extends Controller
         
          return view('users.index', [
             'user' => \Auth::user(),
+            'shops' => \Auth::user()->shops()->paginate(10),
          ]);
      }
     
