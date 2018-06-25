@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('head-plus')
-    <script src="{{ asset('js/search.js') }}"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 @endsection
 
 @section('content')
@@ -11,19 +14,18 @@
                 {!! Form::open(['route' => 'shops.create', 'method' => 'get', 'class' => 'form-inline']) !!}
                     <div class="form-group">
                         {{-- {!! Form::text('area', $area, ['class' => 'form-control input-lg', 'placeholder' => 'Area', 'size' => 40]) !!} --}}
-                        <!-- search field -->
-                        <div contenteditable="true" id="search-field" onkeyup="searchList('search-field', 'search-subject', 'comment')" style="border: 1px solid black; width: 250px;"></div>
-                        <!-- hidden val to submit (area code) -->
-                        <input type="hidden" id="submitInputFieldIdName" name="submitInputFieldIdName" value=""> 
                         <!-- display area options -->
-                        @foreach($areaData as $val)
-                            <div class="search-subject" onclick="setOption('search-field', event, 'submitInputFieldIdName', '{{ $val->areacode_m }}', 'search-subject')" style="display:none">
-                                {{ $val->areaname_m }}
-                            </div>
-                        @endforeach
+                        <select name="arealist" class="selectpicker" data-live-search="true" title="Area">
+                            @foreach($areaData as $val)
+                                @if($val->areacode_m == $area)
+                                    <option value="{{ $val->areacode_m }}" selected>
+                                @else
+                                    <option value="{{ $val->areacode_m }}">
+                                @endif
+                                {{ $val->areaname_m }}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <!-- comment section -->
-                    <p id="comment"></p>
                     
                     <div class="form-two">
                           {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Keyword', 'size' => 40]) !!}

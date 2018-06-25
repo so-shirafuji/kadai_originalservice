@@ -12,6 +12,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+        
+        <!-- (from:yuki) avoid changing any elements itself -->
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         
         @yield('head-plus')
