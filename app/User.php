@@ -68,6 +68,7 @@ class User extends Authenticatable
 
     public function is_favoriteing($shopIdOrCode)
     {
+        // dd($shopIdOrCode);
         if (is_numeric($shopIdOrCode)) {
             $shop_id_exists = $this->favorite_shops()->where('shop_id', $shopIdOrCode)->exists();
             return $shop_id_exists;
