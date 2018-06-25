@@ -17,14 +17,10 @@
                         <input type="hidden" id="submitInputFieldIdName" name="submitInputFieldIdName" value=""> 
                         <!-- display area options -->
                         @foreach($areaData as $val)
-                            <div class="search-subject" onclick="setOption('search-field', event, 'submitInputFieldIdName', '{{ $val->areacode_m }}', 'search-subject')">
+                            <div class="search-subject" onclick="setOption('search-field', event, 'submitInputFieldIdName', '{{ $val->areacode_m }}', 'search-subject')" style="display:none">
                                 {{ $val->areaname_m }}
                             </div>
                         @endforeach
-                        <!--js to undisplay area options-->
-                        <script>
-                            doNotDisplayByClass('search-subject'); // do not display options on load
-                        </script>
                     </div>
                     <!-- comment section -->
                     <p id="comment"></p>
