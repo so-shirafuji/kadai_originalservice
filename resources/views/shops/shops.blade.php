@@ -1,4 +1,4 @@
-@if ($shops)
+@if (count($shops) > 0)
     <div class="row">
         @foreach ($shops as $key => $shop)
             <div class="shop">

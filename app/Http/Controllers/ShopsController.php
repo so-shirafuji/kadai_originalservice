@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\shop;
 
 use App\Libraries\GurunaviAPI;
+use App\Libraries\GurunaviAPIHelper;
 use App\Libraries\GurunaviAPIConfig;
 
 class ShopsController extends Controller
@@ -14,23 +15,27 @@ class ShopsController extends Controller
 
     public function create()
     {
-        $area = null;
-        $keyword = request()->keyword;
+        $area = (isset(request()->submitInputFieldIdName)) ? request()->submitInputFieldIdName : 'AREAM5522';
+        $keyword = (isset(request()->keyword)) ? request()->keyword : '和食';
+        
+        // read area code file
+        $areaData = file_get_contents(public_path('dat/area_m.json'));
+        $areaData = json_decode(GurunaviAPIHelper::unicode_decode($areaData))->garea_middle;
         
         //api seq
         $ins = new GurunaviAPI(GurunaviAPIConfig::API_KEY);
         $ins->SetRequestQuery('uris', $ins->GetUri('search'));
-        $ins->SetRequestQuery('freeword', '和食');
-        $ins->SetRequestQuery('areacode', 'AREAM3001');
-        
+        $ins->SetRequestQuery('freeword', $keyword);
+        $ins->SetRequestQuery('areacode', $area);
+        //send and get http request
         $res = $ins->GetHttpRequest();
-        // var_dump($res->rest);
 
         return view('shops.create', [
             'keyword' => $keyword,
             'shops' => $res->rest,
             // 'shops_meta' => $res->@attributes,
             'area' => $area,
+            'areaData' => $areaData,
         ]);
     }
     

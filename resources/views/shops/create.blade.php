@@ -1,14 +1,29 @@
 @extends('layouts.app')
 
+@section('head-plus')
+    <script src="{{ asset('js/search.js') }}"></script>
+@endsection
+
 @section('content')
     <div class="search">
         <div class="row">
             <div class="text-center">
                 {!! Form::open(['route' => 'shops.create', 'method' => 'get', 'class' => 'form-inline']) !!}
                     <div class="form-group">
-                        {!! Form::text('area', $area, ['class' => 'form-control input-lg', 'placeholder' => 'Area', 'size' => 40]) !!}
-                      
+                        {{-- {!! Form::text('area', $area, ['class' => 'form-control input-lg', 'placeholder' => 'Area', 'size' => 40]) !!} --}}
+                        <!-- search field -->
+                        <div contenteditable="true" id="search-field" onkeyup="searchList('search-field', 'search-subject', 'comment')" style="border: 1px solid black; width: 250px;"></div>
+                        <!-- hidden val to submit (area code) -->
+                        <input type="hidden" id="submitInputFieldIdName" name="submitInputFieldIdName" value=""> 
+                        <!-- display area options -->
+                        @foreach($areaData as $val)
+                            <div class="search-subject" onclick="setOption('search-field', event, 'submitInputFieldIdName', '{{ $val->areacode_m }}', 'search-subject')" style="display:none">
+                                {{ $val->areaname_m }}
+                            </div>
+                        @endforeach
                     </div>
+                    <!-- comment section -->
+                    <p id="comment"></p>
                     
                     <div class="form-two">
                           {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Keyword', 'size' => 40]) !!}
