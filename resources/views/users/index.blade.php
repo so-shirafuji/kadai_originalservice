@@ -14,6 +14,6 @@
         
         
     </div>
-    @include('shops.shops', ['shop' => $shopCode]) 
-    {!! $shopCode->render() !!} 
+    @include('shops.shops', ['shops' => $shops]) 
+    {!! $shops->render() !!} 
 @endsection
