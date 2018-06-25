@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <p class="text-center"><a href="{{ $shop->url }}" target="_blank">ぐるなび詳細ページへ</a></p>
+            <p class="text-center"><a href="{{ $shop->url }}" target="_blank">Go To Gurunavi</a></p>
         </div>
     </div>
 @endsection

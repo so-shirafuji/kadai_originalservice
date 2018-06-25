@@ -69,3 +69,19 @@
 .img{
     margin-left: 150px;
 }
+
+.search{
+    margin-bottom:100px;
+    font-family: "Amatic SC";
+}
+
+.form-two{
+    margin-top: 5px;
+}
+
+.hoge{
+    background-color: white;
+    font-family: "Amatic SC";
+    border-color:black;
+}
+
