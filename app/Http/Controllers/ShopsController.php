@@ -35,7 +35,7 @@ class ShopsController extends Controller
 
         // var_dump($area);
         // var_dump($keyword);
-        // var_dump($res);
+        var_dump($res);
         
         $shops = [];
         //if rest is empty -> no restaurant found
