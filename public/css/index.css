@@ -1,0 +1,27 @@
+@charset "utf-8";
+.trim {
+    overflow: hidden;
+    width: 250px;/* トリミングしたい枠の幅 */
+    height: 250px;/* トリミングしたい枠の高さ */
+    position: relative;
+}
+
+.trim img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}
+
+.panel {
+    width: 250px;
+    height: 400px;
+}
+
+.buttons{
+  padding-top: 30px;
+}
