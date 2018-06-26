@@ -30,7 +30,7 @@
                             @endif
                             <div class="buttons text-center">
                                 @if (Auth::check())  
-                                     @include('shops.favorite_button', ['shop' => $shop])  
+                                     @include('shops.favorite_button', ['shop_id' => $shop->code])  
                                 @endif 
                             </div>
                         </div>
