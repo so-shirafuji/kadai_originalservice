@@ -4,44 +4,47 @@
 
 @section('content')
     
+<div id="detail">    
+    <!--<div class="category">-->
+    <!--<h2>{{ $category }}</h2>-->
+    <!--</div>-->
     
-    <div class="category">
-    <h2>{{ $category }}</h2>
-    </div>
-    
-    <div class="panel panel-default">
-    <div class="name_kana">
-    <p>{{ $name_kana }}</p>
-    </div>
+    <!--<div class="panel panel-default">-->
+    <!--<div class="name_kana">-->
+    <!--<p>{{ $name_kana }}</p>-->
+    <!--</div>-->
     
     <div class="name">
     <h1>{{ $name }}</h1>
     </div>
-    
-    <div class="img">
-    <img src="{{ $image }}" alt="restaurant image" >
+</div> 
+
+    <div class="shopimg" id="clearfix">
+    <img src="{{ $image }}" alt="restaurant image" height="250px", width="300px" >
     </div>
     
     </div>
-    
-    <table class="table-bordered">
+
+
+
+    <table class="table-bordered" id="clearfix">
         <tr>
-            <td>Open</td>
+            <th>open</th>
             <td>{{ $opentime }}</td>
         </tr>
     
         <tr>
-            <td>電話番号 </td>
+            <th>tel</th>
             <td class=><a href="mailto:"></a>{{ $tel }}</td>
         </tr>
     
         <tr>
-            <td>住所</td>
+            <th>address</th>
             <td>{{ $address }}</td>
         </tr>
     
         <tr>
-            <td>最寄り駅 </td>
+            <th>location</th>
             <td>{{ $line }} {{ $station }}</td>
         </tr>
     </table>

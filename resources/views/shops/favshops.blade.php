@@ -3,7 +3,7 @@
         @foreach ($shops as $key => $shop)
             <div class="shop">
                 <div class="col-md-3 col-sm-4 col-xs-12">
-                    <div class="panel panel-default">
+                    <!--<div class="panel panel-default">-->
                         <div class="panel-heading text-center">
                             <img src="{{ $shop->image }}" alt="" class="">
                         </div>
