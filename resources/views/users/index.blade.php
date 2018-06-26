@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="user-profile">
         <div class="icon text-center">
