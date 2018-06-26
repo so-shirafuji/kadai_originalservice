@@ -31,12 +31,8 @@
                             @endif
                             <div class="buttons ">
                                 @if (Auth::check())  
-<<<<<<< HEAD
-                                     @include('shops.favorite_button', ['shop_id' => $shop->code])  
-=======
                                     {{ Form::submit('detail') }}
-                                     @include('shops.favorite_button', ['shop' => $shop])  
->>>>>>> e10f385e57833d3d0a6797ce5a0d4ff8c994a271
+                                     @include('shops.favorite_button', ['shop_id' => $shop->code])  
                                 @endif 
                             </div>
                         </div>

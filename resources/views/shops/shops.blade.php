@@ -35,7 +35,7 @@
                             <div class="buttons">
                                 @if (Auth::check())  
                                     {{ Form::submit('detail') }}
-                                    @include('shops.favorite_button', ['shop' => $shop])  
+                                    @include('shops.favorite_button', ['shop_id' => $shop->id])  
                                 @endif 
                             </div>
                         </div>
