@@ -63,7 +63,7 @@ class ShopsController extends Controller
 
         $statuses = $connection->get("search/tweets", ["q" => $request->name, "tweet_mode" => "extended"]);
         
-        // var_dump($statuses->statuses[0]->entities->media[0]);
+        var_dump($statuses->statuses);
         
         $twitterImages = [];
         foreach($statuses->statuses as $val){
@@ -73,7 +73,7 @@ class ShopsController extends Controller
             array_push($twitterImages, $val->entities->media[0]->media_url);
         }
         
-        // var_dump($twitterImages);
+        var_dump($twitterImages);
         
         return view('shops.show', [
             'name' => $request->name,
