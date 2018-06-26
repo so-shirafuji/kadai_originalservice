@@ -50,8 +50,8 @@ class ShopUserController extends Controller
         $shopCode = request()->shopCode;
 
         if (\Auth::user()->is_favoriteing($shopCode)) {
-            $shopId = shop::where('code', $shopCode)->first()->id;
-            \Auth::user()->dont_favorite($shopId);
+            //$shopId = shop::where('id', $shopCode)->first()->id;
+            \Auth::user()->dont_favorite($shopCode);
         }
         return redirect()->back();
     }
