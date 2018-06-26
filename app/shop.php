@@ -6,7 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class shop extends Model
 {
-     protected $fillable = ['code', 'name', 'location','url', 'image_url'];
+    protected $fillable = [
+        'code',
+        'name',
+        'tel',
+        'station', 
+        'url',
+        'line',
+        'category',
+        'name_kana',
+        'latitude',
+        'longitude',
+        'opentime',
+        'image',
+        'address',
+    ];
 
     public function users()
     {

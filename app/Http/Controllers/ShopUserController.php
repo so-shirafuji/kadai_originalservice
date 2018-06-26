@@ -4,29 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Shop;
+use App\shop;
+
+use App\Libraries\GurunaviAPI;
+use App\Libraries\GurunaviAPIConfig;
 
 class ShopUserController extends Controller
 {
     public function favorite()
     {
-        $shopCode = request()->shopCode;
+        $shopId = request()->shopCode;
 
-        // Search shops from "shopCode"
-        $client = new \RakutenRws_Client();
-        $client->setApplicationId(env('RAKUTEN_APPLICATION_ID'));
-        $rws_response = $client->execute('IchibashopSearch', [
-            'shopCode' => $shopCode,
-        ]);
-        $rws_shop = $rws_response->getData()['shops'][0]['shop'];
+        //api seq
+        $ins = new GurunaviAPI(GurunaviAPIConfig::API_KEY);
+        $ins->SetRequestQuery('uris', $ins->GetUri('search'));
+        $ins->SetRequestQuery('id', $shopId);
+        //send and get http request
+        $res = $ins->GetHttpRequest();
 
         // create shop, or get shop if an shop is found
         $shop = shop::firstOrCreate([
-            'code' => $rws_shop['shopCode'],
-            'name' => $rws_shop['shopName'],
-            'url' => $rws_shop['shopUrl'],
+            'code' => $res->rest->id,
+            'name' => $res->rest->name,
+            'tel' => $res->rest->tel,
+            'station' => $res->rest->access->station,
+            'url' => $res->rest->url,
+            'line' => $res->rest->access->line,
+            'category' => $res->rest->category,
+            'name_kana' => $res->rest->name_kana,
+            'latitude' => $res->rest->latitude,
+            'longitude' => $res->rest->longitude,
+            'opentime' => $res->rest->opentime,
             // remove "?_ex=128x128" because its size is defined
-            'image_url' => str_replace('?_ex=128x128', '', $rws_shop['mediumImageUrls'][0]['imageUrl']),
+            'image' => str_replace('?_ex=128x128', '', $res->rest->image_url->shop_image1),
+            'address' => $res->rest->address,
         ]);
 
         \Auth::user()->favorite($shop->id);
@@ -34,7 +45,7 @@ class ShopUserController extends Controller
         return redirect()->back();
     }
 
-    public function dont_favorite()
+    public function unfavorite()
     {
         $shopCode = request()->shopCode;
 

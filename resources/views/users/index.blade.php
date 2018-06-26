@@ -14,6 +14,6 @@
         
         
     </div>
-    @include('shops.shops', ['shops' => $shops]) 
+    @include('shops.favshops', ['shops' => $shops]) 
     {!! $shops->render() !!} 
 @endsection
