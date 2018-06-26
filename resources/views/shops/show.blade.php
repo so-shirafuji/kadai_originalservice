@@ -47,12 +47,17 @@
             <th>location</th>
             <td>{{ $line }} {{ $station }}</td>
         </tr>
+        
+        <tr>
+            <th>URL</th>
+            <td><a href="{{ $url }}">Check It Out</a></td>
+        </tr>    
+    
     </table>
     
     
     
     <!--<p>{{ $latitude }}</p>-->
     <!--<p>{{ $longitude }}</p>-->
-    
-    <a href="{{ $url }}">Check It Out</a>
+
 @endsection

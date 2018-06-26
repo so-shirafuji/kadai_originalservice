@@ -12,7 +12,7 @@
                 
                            @if (Auth::check())
                         
-                             <a class="navbar-left" href="/user" id="toop">Medium Rare </a>
+                             <a class="navbar-left" href="/user" id="toop">Medium-Rare </a>
                 
                     @else
                          <a class="navbar-left" href="/" id="toop">Medium Rare </a>
