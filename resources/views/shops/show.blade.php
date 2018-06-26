@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
+@section('head-plus')
 <link rel="stylesheet" href="{{ secure_asset('css/show.css') }}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endsection
 
 @section('content')
     
@@ -27,7 +31,7 @@
 
 
 
-    <table class="table-bordered" id="clearfix">
+    <table class="table-bordered" >
         <tr>
             <th>open</th>
             <td>{{ $opentime }}</td>
@@ -54,6 +58,24 @@
         </tr>    
     
     </table>
+    
+    <div class="twitter">
+    <p>
+      <a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <span class="fa fa-twitter"></span>images from twitter
+</a>
+   
+    </p>
+    <div class="collapse" id="collapseExample">
+       @foreach($twitterImages as $imagins)
+        <img src="{{ $imagins }}" alt="restaurant image" height="250px", width="300px" >
+        @endforeach
+    </div>
+    </div>
+    
+    
+    
+    
     
     
     

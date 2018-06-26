@@ -90,10 +90,10 @@ class ShopsController extends Controller
             array_push($twitterImages, $val->entities->media[0]->media_url);
         }
         
-        var_dump($restNames);
-        var_dump($restNameQuery);
+        // var_dump($restNames);
+        // var_dump($restNameQuery);
         // var_dump($statuses->statuses);
-        var_dump($twitterImages);
+        // var_dump($twitterImages);
         
         return view('shops.show', [
             'name' => $request->name,
