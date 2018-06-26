@@ -16,7 +16,7 @@ class GurunaviAPI {
             'area_s' => 'https://api.gnavi.co.jp/master/GAreaSmallSearchAPI/20150630/',
         ];
         $this->baseUrls = [
-            'https://api.gnavi.co.jp/RestSearchAPI/20150630/' => '@uris?keyid=@key&format=@format&freeword=@freeword&areacode_m=@areacode_m',
+            'https://api.gnavi.co.jp/RestSearchAPI/20150630/' => '@uris?keyid=@key&format=@format&freeword=@freeword&areacode_m=@areacode_m&id=@id',
             'https://api.gnavi.co.jp/master/GAreaMiddleSearchAPI/20150630/' => '@uris?keyid=@key&format=@format',
             'https://api.gnavi.co.jp/master/GAreaSmallSearchAPI/20150630/' => '@uris?keyid=@key&format=@format',
         ];
@@ -27,6 +27,7 @@ class GurunaviAPI {
             'format' => '/@format/',
             'freeword' => '/@freeword/',
             'areacode' => '/@areacode_m/',
+            'id' => '/@id/',
         ];
         $this->replacements = [
             'uris' => $this->uris['search'],
@@ -34,6 +35,7 @@ class GurunaviAPI {
             'format' => 'json',
             'freeword' => '',
             'areacode' => '',
+            'id' => '',
         ];
     }
 

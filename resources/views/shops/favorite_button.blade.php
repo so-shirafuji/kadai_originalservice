@@ -4,7 +4,7 @@
         {!! Form::submit('unfavorite', ['class' => 'heart']) !!}
     {!! Form::close() !!}
 @else
-    {!! Form::open(['route' => 'favorite']) !!}
+    {!! Form::open(['route' => 'favorite', 'method' => 'post']) !!}
         {!! Form::hidden('shopCode', $shop->id) !!}
         {!! Form::submit('favorite', ['class' => 'heart']) !!}
     {!! Form::close() !!}

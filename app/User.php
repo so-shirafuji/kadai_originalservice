@@ -47,7 +47,7 @@ class User extends Authenticatable
             return false;
         } else {
             // do "favorite"
-            $this->shops()->attach($shopId, ['type' => 'favorite']);
+            $this->shops()->attach($shopId);
             return true;
         }
     }
@@ -59,7 +59,7 @@ class User extends Authenticatable
 
         if ($exist) {
             // remove "favorite"
-            \DB::delete("DELETE FROM shop_user WHERE user_id = ? AND shop_id = ? AND type = 'favorite'", [\Auth::user()->id, $shopId]);
+            \DB::delete("DELETE FROM user_favorite WHERE user_id = ? AND shop_id = ?", [\Auth::user()->id, $shopId]);
         } else {
             // do nothing
             return false;
