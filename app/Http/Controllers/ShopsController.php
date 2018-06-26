@@ -63,7 +63,7 @@ class ShopsController extends Controller
 
         $statuses = $connection->get("search/tweets", ["q" => $request->name, "tweet_mode" => "extended"]);
         
-        var_dump($statuses->statuses);
+        // var_dump($statuses->statuses);
         
         $twitterImages = [];
         foreach($statuses->statuses as $val){
