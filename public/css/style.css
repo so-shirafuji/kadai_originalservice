@@ -4,11 +4,12 @@
 *{
   font-family: "Amatic SC";
   color:#25254A;
+  font-weight: bolder;
 }
 
 
 
-.btn{
+.bt{
   display: inline-block;
   text-decoration: none;
   color: #25254A;
@@ -27,6 +28,38 @@
 
 }
 
+
+    
+.heart {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  animation: fave-heart 1s steps(28);
+  border-color: transparent;
+  margin-top: 100px;
+  margin-right: 50px;
+}
+.heart:hover {
+  background-position: -2800px 0;
+  transition: background 1s steps(28);
+}
+@keyframes fave-heart {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2800px 0;
+  }
+}
+
+
+
 #a{
     
    font-size:30px;
@@ -35,7 +68,7 @@
    
 }
 
-.btn:hover{
+.bt:hover{
   -webkit-transform: rotateY(360deg);
   -ms-transform: rotateY(360deg);
   transform: rotateY(360deg);
@@ -84,4 +117,15 @@
     font-family: "Amatic SC";
     border-color:black;
 }
-
+.buttonjr {
+  display: inline-block;
+  padding: .4em 4em;
+  border: 1px solid black;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+  color:black ;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  margin-left:200px;
+  margin-top: 20px;
+}
