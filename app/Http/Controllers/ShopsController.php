@@ -35,11 +35,17 @@ class ShopsController extends Controller
 
         // var_dump($area);
         // var_dump($keyword);
-        // var_dump($res->rest);
+        var_dump($res);
+        
+        $shops = [];
+        //if rest is empty -> no restaurant found
+        if(isset($res->rest)){
+            $shops = $res->rest;
+        }
 
         return view('shops.create', [
             'keyword' => $keyword,
-            'shops' => $res->rest,
+            'shops' => $shops,
             // 'shops_meta' => $res->@attributes,
             'area' => $area,
             'areaData' => $areaData,
@@ -63,7 +69,17 @@ class ShopsController extends Controller
         $connection = new TwitterOAuth(TwitterAPIConfig::API_KEY, TwitterAPIConfig::API_SECRET, TwitterAPIConfig::ACCESS_KEY, TwitterAPIConfig::ACCESS_SECRET);
         
         //get search result
-        $statuses = $connection->get("search/tweets", ["q" => $request->name, "tweet_mode" => "extended"]);
+        //get query name
+        $restNames = explode(' ', $request->name);
+        $restNameQuery;
+        if(count($restNames) > 1){
+            $restNameQuery = $restNames[(count($restNames)-1) - 1];
+        }
+        else{
+            $restNameQuery = $request->name;
+        }
+        //send http request
+        $statuses = $connection->get("search/tweets", ["q" => $restNameQuery, "tweet_mode" => "extended"]);
         
         //get images from tweets
         $twitterImages = [];
@@ -74,6 +90,9 @@ class ShopsController extends Controller
             array_push($twitterImages, $val->entities->media[0]->media_url);
         }
         
+        var_dump($restNames);
+        var_dump($restNameQuery);
+        // var_dump($statuses->statuses);
         var_dump($twitterImages);
         
         return view('shops.show', [
