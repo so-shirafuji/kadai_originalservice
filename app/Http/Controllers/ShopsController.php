@@ -10,6 +10,9 @@ use App\Libraries\GurunaviAPI;
 use App\Libraries\GurunaviAPIHelper;
 use App\Libraries\GurunaviAPIConfig;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Libraries\TwitterAPIConfig;
+
 class ShopsController extends Controller
  {
 
@@ -56,6 +59,22 @@ class ShopsController extends Controller
     // }
     
     public function store(Request $request){
+        $connection = new TwitterOAuth(TwitterAPIConfig::API_KEY, TwitterAPIConfig::API_SECRET, TwitterAPIConfig::ACCESS_KEY, TwitterAPIConfig::ACCESS_SECRET);
+
+        $statuses = $connection->get("search/tweets", ["q" => $request->name, "tweet_mode" => "extended"]);
+        
+        // var_dump($statuses->statuses[0]->entities->media[0]);
+        
+        $twitterImages = [];
+        foreach($statuses->statuses as $val){
+            if( !isset($val->entities->media[0]->media_url) ){
+                continue;
+            }
+            array_push($twitterImages, $val->entities->media[0]->media_url);
+        }
+        
+        // var_dump($twitterImages);
+        
         return view('shops.show', [
             'name' => $request->name,
             'image' => $request->image,
@@ -70,7 +89,7 @@ class ShopsController extends Controller
             'station' => $request ->station,
             'opentime' => $request ->opentime,
             // 'favorite_users' => $favorite_users,
-            
+            'twitterImages' => $twitterImages,
         ]);
     }
   }
