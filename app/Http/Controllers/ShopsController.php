@@ -32,21 +32,31 @@ class ShopsController extends Controller
         $ins->SetRequestQuery('areacode', $area);
         //send and get http request
         $res = $ins->GetHttpRequest();
-
-        // var_dump($area);
-        // var_dump($keyword);
-        // var_dump($res);
         
+        //set to shops var ONLY if any restaurants are found
         $shops = [];
-        //if rest is empty -> no restaurant found
         if(isset($res->rest)){
             $shops = $res->rest;
+        }
+        
+        // parse empty string if shop_image1 is object
+        foreach($shops as $shop){
+            if(is_object($shop->name)){ $shop->name = ''; }
+            if(is_object($shop->image_url->shop_image1)){ $shop->image_url->shop_image1 = '';}
+            if(is_object($shop->address)){ $shop->address = ''; }
+            if(is_object($shop->name_kana)){ $shop->name_kana = '';}
+            if(is_object($shop->latitude)){ $shop->latitude = '';}
+            if(is_object($shop->longitude)){$shop->longitude = '';}
+            if(is_object($shop->category)){$shop->category = '';}
+            if(is_object($shop->tel)){$shop->tel = '';}
+            if(is_object($shop->access->line)){$shop->access->line = '';}
+            if(is_object($shop->access->station)){$shop->access->station = '';}
+            if(is_object($shop->opentime)){$shop->opentime = '';}
         }
 
         return view('shops.create', [
             'keyword' => $keyword,
             'shops' => $shops,
-            // 'shops_meta' => $res->@attributes,
             'area' => $area,
             'areaData' => $areaData,
         ]);
