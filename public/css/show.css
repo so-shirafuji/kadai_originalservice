@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.category{
+    margin-bottom: 50px;
+}
+
+
+.name{
+    margin-top: 0;
+    padding-top: 0;
+    /*background-color:red; */
+}
+
+.name_kana{
+    margin-bottom: 0px;
+    padding-bottom: 0;
+    /*background-color: red;*/
+}
+
+.img{
+    margin-bottom: 50px;
+}
