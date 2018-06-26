@@ -59,12 +59,13 @@ class ShopsController extends Controller
     // }
     
     public function store(Request $request){
+        //twitter API
         $connection = new TwitterOAuth(TwitterAPIConfig::API_KEY, TwitterAPIConfig::API_SECRET, TwitterAPIConfig::ACCESS_KEY, TwitterAPIConfig::ACCESS_SECRET);
-
+        
+        //get search result
         $statuses = $connection->get("search/tweets", ["q" => $request->name, "tweet_mode" => "extended"]);
         
-        // var_dump($statuses->statuses);
-        
+        //get images from tweets
         $twitterImages = [];
         foreach($statuses->statuses as $val){
             if( !isset($val->entities->media[0]->media_url) ){
