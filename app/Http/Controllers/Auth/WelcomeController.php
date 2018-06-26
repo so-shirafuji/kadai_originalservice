@@ -13,6 +13,10 @@ class WelcomeController extends Controller
   
     public function index()
     {
+        if(\Auth::check()){
+            return redirect()->route('user.index');
+        }
+        
         return view('welcome');
     }
 }
