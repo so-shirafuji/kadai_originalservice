@@ -19,9 +19,9 @@
                 
                 <br>
                 
-                <a href="{{ route('signup.get') }}" class="btn"><div id="a">Sign Up</div></a>
+                <a href="{{ route('signup.get') }}" class="bt"><div id="a">Sign Up</div></a>
                 
-                <a href="{{ route('login') }}" class="btn"><div id="a">Log In</div></a>
+                <a href="{{ route('login') }}" class="bt"><div id="a">Log In</div></a>
                 
             </div>
         </div>

@@ -13,7 +13,7 @@
             <div class="text-center">
                 {!! Form::open(['route' => 'shops.create', 'method' => 'get', 'class' => 'form-inline']) !!}
                     <div class="form-group">
-                        {{-- {!! Form::text('area', $area, ['class' => 'form-control input-lg', 'placeholder' => 'Area', 'size' => 40]) !!} --}}
+                       
                         <!-- display area options -->
                         <select name="arealist" class="selectpicker" data-live-search="true" title="Area">
                             @foreach($areaData as $val)
@@ -28,11 +28,11 @@
                     </div>
                     
                     <div class="form-two">
-                          {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Keyword', 'size' => 40]) !!}
+                          {!! Form::text('keyword', $keyword, ['class' => 'form-control', 'placeholder' => 'Keyword', 'size' => 55]) !!}
                     </div>
                      </br>
-                    {{-- {!! Form::submit('Search', ['class' => 'buttonbutton']) !!} --}}
-                    <button class="hoge"><span class="glyphicon glyphicon-search">SEARCH</button>
+                    {{-- {!! Form::submit('Search', ['class' => 'hoge']) !!} --}}
+                    <button class="buttonjr btn-xs">SEARCH</button>
                    
                 {!! Form::close() !!}
                  </span>

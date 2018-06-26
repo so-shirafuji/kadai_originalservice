@@ -1,11 +1,11 @@
 @if (Auth::user()->is_favoriteing($shop->id))
     {!! Form::open(['route' => 'unfavorite', 'method' => 'delete']) !!}
         {!! Form::hidden('shopCode', $shop->id) !!}
-        {!! Form::submit('unfavorite', ['class' => 'btn-primary']) !!}
+        {!! Form::submit('unfavorite', ['class' => 'heart']) !!}
     {!! Form::close() !!}
 @else
     {!! Form::open(['route' => 'favorite', 'method' => 'post']) !!}
         {!! Form::hidden('shopCode', $shop->id) !!}
-        {!! Form::submit('favorite', ['class' => 'btn btn-inf']) !!}
+        {!! Form::submit('favorite', ['class' => 'heart']) !!}
     {!! Form::close() !!}
 @endif
