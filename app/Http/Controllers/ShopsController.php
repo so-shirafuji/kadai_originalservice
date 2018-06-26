@@ -15,8 +15,8 @@ class ShopsController extends Controller
 
     public function create()
     {
-        $area = (isset(request()->submitInputFieldIdName)) ? request()->submitInputFieldIdName : 'AREAM5522';
-        $keyword = (isset(request()->keyword)) ? request()->keyword : '和食';
+        $area = (isset(request()->arealist)) ? request()->arealist : '';
+        $keyword = (isset(request()->keyword)) ? request()->keyword : '';
         
         // read area code file
         $areaData = file_get_contents(public_path('dat/area_m.json'));
@@ -29,6 +29,10 @@ class ShopsController extends Controller
         $ins->SetRequestQuery('areacode', $area);
         //send and get http request
         $res = $ins->GetHttpRequest();
+
+        // var_dump($area);
+        // var_dump($keyword);
+        // var_dump($res->rest);
 
         return view('shops.create', [
             'keyword' => $keyword,
