@@ -3,20 +3,25 @@
 <link rel="stylesheet" href="{{ secure_asset('css/show.css') }}">
 
 @section('content')
+    
+    
     <div class="category">
-    <h1>{{ $category }}</h1>
+    <h2>{{ $category }}</h2>
     </div>
     
+    <div class="panel panel-default">
     <div class="name_kana">
     <p>{{ $name_kana }}</p>
     </div>
     
     <div class="name">
-    <h2>{{ $name }}</h2>
+    <h1>{{ $name }}</h1>
     </div>
     
     <div class="img">
     <img src="{{ $image }}" alt="restaurant image" >
+    </div>
+    
     </div>
     
     <table class="table-bordered">
