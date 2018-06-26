@@ -19,7 +19,6 @@
  
                             <div class="buttons">
                                 @if (Auth::check())  
-                                  @include('shops.favorite_button', ['shop_id' => $shop->id])  
                                     {{ Form::open(['route' => 'shops.store', 'method' => 'post']) }}
                                         <input type="hidden" name="name" value="{{ $shop->name }}">
                                         <input type="hidden" name="image" value="{{ $shop->image_url->shop_image1 }}">
@@ -35,7 +34,7 @@
                                         <input type="hidden" name="opentime" value="{{ $shop->opentime }}">
                                         {{ Form::submit('detail') }}
                                     {{ Form::close() }}
-                                  
+                                    @include('shops.favorite_button', ['shop_id' => $shop->id])  
                                 @endif 
                             </div>
                         </div>

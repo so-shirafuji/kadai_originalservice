@@ -1,4 +1,8 @@
+
 <link rel="stylesheet" href="{{ secure_asset('css/create.css') }}">
+
+
+
 
 @if (count($shops) > 0)
     <div class="row">

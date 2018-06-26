@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!--<link rel="shortcut icon" href="favicon.ico">-->
         <title>Medium Rare</title>
 
         <!-- Bootstrap -->
@@ -17,6 +18,7 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         
         @yield('head-plus')
+        
     </head>
     <body>
             @include('commons.navbar')
