@@ -45,15 +45,11 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                            
-                                <li>
-                                    <a href="{{ route('logout.get') }}">Log Out</a>
-                                </li>
+                                <li><a href="{{ route('user.index') }}">My Page</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ route('logout.get') }}">Log Out</a></li>
                             </ul>
                         </li>
-                    @else
-                        <!--<li><a href="{{ route('signup.get') }}">Sign Up</a></li>-->
-                        <!--<li><a href="{{ route('login') }}">Log In</a></li>-->
                     @endif
                 </ul>
             </div>
