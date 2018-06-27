@@ -16,13 +16,14 @@
                        
                         <!-- display area options -->
                         <select name="arealist" class="selectpicker" data-live-search="true" title="Area">
+                            <?php $prefHolder = ''; ?>
                             @foreach($areaData as $val)
                                 @if($val->areacode_m == $area)
                                     <option value="{{ $val->areacode_m }}" selected>
                                 @else
                                     <option value="{{ $val->areacode_m }}">
                                 @endif
-                                {{ $val->areaname_m }}</option>
+                                    {{ $val->areaname_m }}, {{ $val->pref->pref_name }}</option>
                             @endforeach
                         </select>
                     </div>
