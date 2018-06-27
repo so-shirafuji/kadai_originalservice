@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-    
+<div class="row">
+    <div class="col-md-offset-1 ">    
 <div id="detail">    
     <!--<div class="category">-->
     <!--<h2>{{ $category }}</h2>-->
@@ -27,7 +28,6 @@
     <img src="{{ $image }}" alt="restaurant image" height="250px", width="300px" >
     </div>
     
-    </div>
 
 
 
@@ -81,5 +81,6 @@
     
     <!--<p>{{ $latitude }}</p>-->
     <!--<p>{{ $longitude }}</p>-->
-
+    </div>
+</div>
 @endsection
